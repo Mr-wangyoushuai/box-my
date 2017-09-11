@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+	<script>
+	//闭包函数
+		function fn(){
+			var num=10;
+			return fn1;
+			function fn1(){
+				num++;
+				return num;
+			}
+		}
+		var result=fn();
+		var result1=result();
+		// alert(result1);
+
+		var fn = function(a){//-----------------等价于下面的函数
+			return a;
+		}
+// 箭头函数
+		var fn = a=>a;
+
+      	// alert(fn(2));
+//-------
+      	var fn = function(){
+      		return 1;
+      	}
+      	//等价于
+      	var fn = ()=>1;
+
+      	var fn2 = function(a,b){
+      		alert(a+b);
+      		alert(a-b);
+	      	return [a,b];
+
+       	}
+       	// alert(fn2(2,3));
+      	var fn3 =(a,b)=>{
+	      	alert(a+b);
+	      	alert(a-b);
+	      	return [a,b];
+      	}
+      	// alert(fn3(2,3));
+//数组每个元素都*2
+		var arr=[1,2,3,4,5,6,7,8]
+		var result = map(arr,value=>value*2)
+		// alert(result);
+		function map(arr,fn){
+			var newarr=[];
+			for (var i = 0; i <arr.length; i++) {
+				newarr[newarr.length]=fn(arr[i]);
+			}return newarr;
+		}
+//块级作用域
+ 	let num =10;
+ 	alert(num);
+  	function a(){
+  		alert(num);
+  		if(ture){
+  			alert(num);
+  			let num=3;
+  		}
+  	}
+//let var let记录for的每一步
+  	function aa(){
+  		
+  		for(var i=0;i<10;i++){
+  			console.log(i);
+  		}
+  		console.log(i);
+  	}
+  	aa();
+  	function bb(){
+  		
+  		for(let i=0;i<10;i++){
+  			console.log(i);
+  		}
+  		console.log(i);
+  	}
+  	aa();
+  //内置顶层
+  	console.log(parseFloat('123SDF'));
+  	console.log(isNaN('234'));
+  	console.log(parseInt('2345null'));
+  	console.log(escape('我'));
+  	console.log(Number('f'));
+  	console.log(Boolean(''));
+  	console.log(unescape('%u6211'));
+//构造函数
+  	function person(){
+
+  	}
+  	let zhangsan = new person();
+  	let sili =new person();
+  	zhangsan.age = 19;
+  	zhangsan.name = 'zhangsan';
+  	console.log(zhangsan.age);
+  	console.log(zhangsan.name);
+  	zhangsan.say = function (){
+
+	alert(zhangsan.name);
+
+	}
+	
+	zhangsan.say();
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
